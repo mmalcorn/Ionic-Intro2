@@ -8,6 +8,17 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { FeedListPage } from '../pages/feed-list/feed-list';
 import { FeedService } from '../providers/feed-service';
 import { Storage } from '@ionic/storage';
+import { AngularFireModule } from 'angularfire2';
+import { Connectivity } from '../providers/connectivity';
+import { Geolocation } from 'ionic-native';
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyDZt_S1vngS8ulgK2Ne0fVth8imvDoiVvc",
+    authDomain: "ionic-junto.firebaseapp.com",
+    databaseURL: "https://ionic-junto.firebaseio.com",
+    storageBucket: "ionic-junto.appspot.com",
+    messagingSenderId: "59140343196"
+};
 
 @NgModule({
   declarations: [
@@ -17,10 +28,12 @@ import { Storage } from '@ionic/storage';
     HomePage,
     TabsPage,
     HomePage,
-    FeedListPage
+    FeedListPage,
+    Geolocation
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,6 +45,7 @@ import { Storage } from '@ionic/storage';
     HomePage,
     FeedListPage
   ],
-  providers: [FeedService, Storage]
+  providers:
+  [FeedService, Storage, Connectivity]
 })
 export class AppModule {}

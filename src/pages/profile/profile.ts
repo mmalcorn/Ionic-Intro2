@@ -27,7 +27,8 @@ import { Profile } from '../../app/profile.model';
               <button block>
                   <ion-icon name="add"></ion-icon>Create</button>
           </form>
-  `
+
+            `
 })
 
 export class ProfilePage {
