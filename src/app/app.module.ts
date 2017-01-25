@@ -5,6 +5,9 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { FeedListPage } from '../pages/feed-list/feed-list';
+import { FeedService } from '../providers/feed-service';
+import { Storage } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -12,7 +15,9 @@ import { TabsPage } from '../pages/tabs/tabs';
     ProfilePage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    HomePage,
+    FeedListPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -23,8 +28,10 @@ import { TabsPage } from '../pages/tabs/tabs';
     ProfilePage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    HomePage,
+    FeedListPage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+  providers: [FeedService, Storage]
 })
 export class AppModule {}
