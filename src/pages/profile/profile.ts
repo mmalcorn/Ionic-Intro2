@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from 'ionic-angular';
+import { Profile } from '../../app/profile.model';
 
 @Component({
   selector: 'page-profile',
@@ -24,7 +25,7 @@ import { NavController } from 'ionic-angular';
                 </ion-item>
 
               <button block>
-                  <ion-icon name="add" (click)="save()"></ion-icon>Create</button>
+                  <ion-icon name="add"></ion-icon>Create</button>
           </form>
   `
 })
