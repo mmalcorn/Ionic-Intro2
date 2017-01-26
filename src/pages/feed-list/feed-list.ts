@@ -1,25 +1,48 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
+import { InAppBrowser } from 'ionic-native';
+import { Http } from '@angular/http';
+import {FeedService, FeedItem, Feed} from '../../providers/feed-service';
 
-/*
-  Generated class for the FeedList page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-feed-list',
   templateUrl: 'feed-list.html'
 })
 export class FeedListPage {
+  articles: FeedItem[];
+  selectedFeed: Feed;
+  loading: Boolean;
 
-    // URL: string = "http://feeds.bbci.co.uk/news/rss.xml?edition=us";
-    // XHRResponse: string = XHR2.send("GET", url, {});
-    // Apperyio.response.success(XHRResponse.body, "text/xml");
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedListPage');
+  constructor(private nav: NavController, private feedService: FeedService, private navParams: NavParams) {
+    this.selectedFeed = navParams.get('selectedFeed');
   }
 
+  public openArticle(url: string) {
+    InAppBrowser.open(url, '_blank');
+    // window.open(url, '_blank');
+  }
+
+  loadArticles() {
+    this.loading = true;
+    this.feedService.getArticlesForUrl(this.selectedFeed.url).subscribe(res => {
+      this.articles = res;
+      this.loading = false;
+    });
+  }
+
+  public ionViewWillEnter() {
+    if (this.selectedFeed !== undefined && this.selectedFeed !== null ) {
+      this.loadArticles()
+    } else {
+      this.feedService.getSavedFeeds().then(
+        feeds => {
+          if (feeds.length > 0) {
+            let item = feeds[0];
+            this.selectedFeed = new Feed(item.title, item.url);
+            this.loadArticles();
+          }
+        }
+      );
+    }
+  }
 }
