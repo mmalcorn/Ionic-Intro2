@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
+import { FeedModel } from './models/feed';
 import { Observable } from 'rxjs/Observable';
 
 export class FeedItem {
