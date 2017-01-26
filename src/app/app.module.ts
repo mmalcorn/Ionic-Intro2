@@ -9,8 +9,6 @@ import { FeedListPage } from '../pages/feed-list/feed-list';
 import { FeedService } from '../providers/feed-service';
 import { Storage } from '@ionic/storage';
 import { AngularFireModule } from 'angularfire2';
-import { Connectivity } from '../providers/connectivity';
-import { Geolocation } from 'ionic-native';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDZt_S1vngS8ulgK2Ne0fVth8imvDoiVvc",
@@ -29,7 +27,6 @@ export const firebaseConfig = {
     TabsPage,
     HomePage,
     FeedListPage,
-    Geolocation
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -46,6 +43,6 @@ export const firebaseConfig = {
     FeedListPage
   ],
   providers:
-  [FeedService, Storage, Connectivity]
+  [FeedService, Storage]
 })
 export class AppModule {}
