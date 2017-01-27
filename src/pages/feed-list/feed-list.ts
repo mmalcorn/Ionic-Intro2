@@ -18,11 +18,11 @@ export class FeedListPage {
   }
 
   public openArticle(url: string) {
-    InAppBrowser.open(url, '_blank');
-    // window.open(url, '_blank');
+    // InAppBrowser.open(url, '_blank');
+    window.open(url, '_blank');
   }
 
-  loadArticles() {
+  public loadArticles() {
     this.loading = true;
     this.feedService.getArticlesForUrl(this.selectedFeed.url).subscribe(res => {
       this.articles = res;
