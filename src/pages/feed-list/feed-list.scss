@@ -1,3 +1,19 @@
 page-feed-list {
-
+  .feed-list {
+    background: #96CDCD;
+    .feed-article {
+      height: 80px;
+      background: #ffffff;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      border-top: 0px;
+      color: #000000;
+    }
+    }
 }
+  #feed-spinner {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    height: 100px;
+  }

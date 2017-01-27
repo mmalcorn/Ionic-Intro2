@@ -22,7 +22,7 @@ export class NewsFeedPage {
         inputs: [
           {
             name: 'name',
-            placeholder: 'The best Feed ever'
+            placeholder: 'Add RSS Feed link here',
           },
           {
             name: 'url',

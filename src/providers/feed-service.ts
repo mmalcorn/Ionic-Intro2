@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Storage } from '@ionic/storage';
-import { FeedModel } from './models/feed';
 import { Observable } from 'rxjs/Observable';
 
 export class FeedItem {
@@ -33,6 +32,7 @@ export class FeedService {
   constructor(private http: Http, public storage: Storage) {}
 
   public getSavedFeeds() {
+      //Look into what storage.get is doing.  Unclear right now.  Where is 'savedFeeds' coming from?
     return this.storage.get('savedFeeds').then(data => {
       let objFromString = JSON.parse(data);
       if (data !== null && data !== undefined) {
@@ -61,12 +61,12 @@ export class FeedService {
         return articles;
       }
       let objects = res['item'];
-      var length = 20;
+      var length = 200;
 
       for (let i = 0; i < objects.length; i++) {
         let item = objects[i];
         var trimmedDescription = item.description.length > length ?
-        item.description.substring(0, 80) + "..." :
+        item.description.substring(0, 200) + "..." :
         item.description;
         let newFeedItem = new FeedItem(trimmedDescription, item.link, item.title);
         articles.push(newFeedItem);
