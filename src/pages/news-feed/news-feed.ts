@@ -22,11 +22,11 @@ export class NewsFeedPage {
         inputs: [
           {
             name: 'name',
-            placeholder: 'Add RSS Feed link here',
+            placeholder: 'Insert RSS Feed title here',
           },
           {
             name: 'url',
-            placeholder: 'http://www.myfeedurl.com/feed'
+            placeholder: 'Add RSS link here, for example http://feeds.bbci.co.uk/news/science_and_environment/rss.xml?edition=uk'
           },
         ],
         buttons: [

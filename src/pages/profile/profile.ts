@@ -33,6 +33,7 @@ import { Profile } from '../../app/profile.model';
 
 export class ProfilePage {
   userFormInput: FormGroup;
+
   private userData: any;
   constructor(private navCtrl: NavController, public formBuilder: FormBuilder) {
     this.userFormInput = formBuilder.group({
@@ -43,28 +44,7 @@ export class ProfilePage {
       'birthday': '',
     })
   }
-
-// FUNCTIONS ===============================================================
-
-    // Validation: TODO: not working
-// validate(): boolean {
-//     if (this.userFormInput.valid){
-//         return true;
-//     }
-//
-//     let errorMsg = 'Error';
-//
-//     let control = this.userFormInput.controls['name'];
-//     if (!control.valid) {
-//       if (control.errors['required']) {
-//         errorMsg = 'Please enter a name';
-//       } else if (control.errors['minlength']) {
-//         errorMsg = 'Name must have 2 characters or more';
-//       }
-//     }
-// }
-
-  onSubmit(returnUserInput) {
+   onSubmit(returnUserInput) {
     console.log('User data', returnUserInput);
 
     this.userData = returnUserInput;

@@ -9,6 +9,7 @@ import { FeedListPage } from '../pages/feed-list/feed-list';
 import { FeedService } from '../providers/feed-service';
 import { Storage } from '@ionic/storage';
 import { AngularFireModule } from 'angularfire2';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyDZt_S1vngS8ulgK2Ne0fVth8imvDoiVvc",
@@ -30,7 +31,9 @@ export const firebaseConfig = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    FormsModule,
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -46,3 +49,4 @@ export const firebaseConfig = {
   [FeedService, Storage]
 })
 export class AppModule {}
+export class FormsDemoModule{}
