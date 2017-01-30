@@ -50,10 +50,10 @@ For comments or questions, please email alcornmeredith@gmail.com
 ### **Technologies Used**
 
 * HTML
+* Sass
 * JavaScript
 * Ionic 2 
 * Angular2
-* Bootstrap
 * npm JS package manager
 ----
 ### **License**
